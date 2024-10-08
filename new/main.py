@@ -6,8 +6,8 @@ app = FastAPI()
 def get_zos_jobs():
     cmd = [
         'zowe', 'zos-jobs', 'list', 'jobs',
-        '--user', 'Z00805',
-        '--password', 'IMP55USE',
+        '--user', 'Your id',
+        '--password', 'Your pass',
         '--host', '204.90.115.200',
         '--port', '10443',
         '--ru', 'false'
