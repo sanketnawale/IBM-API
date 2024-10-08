@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spool Content for {{ jobid }}</title>
+    <style>
+        .spool-section {
+            margin-bottom: 20px;
+        }
+        .spool-title {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .spool-content {
+            background-color: #f4f4f4;
+            padding: 10px;
+            white-space: pre-wrap;  /* Preserve formatting */
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>Spool Content for Job {{ jobid }}</h1>
+    
+    {% for section in spool_sections %}
+        <div class="spool-section">
+            <div class="spool-title">{{ section.title }}</div>
+            <div class="spool-content">
+                {% for line in section.content %}
+                    {{ line }}<br>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+    
+    <a href="{% url 'job_list' %}">Back to Job List</a>
+</body>
+</html>
